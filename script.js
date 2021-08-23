@@ -1,6 +1,6 @@
 const fs = require('fs');
-const rutaInicio = 'c:\\Scaner';
-const rutaBasura = 'c:\\Basura';
+const rutaInicio = 'F:\\DatosUsuarios\\Escaner';
+const rutaBasura = 'F:\\DatosUsuarios\\BasuraEscaner';
 var date=new Date();
 date.setDate(date.getDate()-7);
 console.log("Fecha a borrar: "+date);
@@ -15,7 +15,7 @@ function iniciarBorrado(path){
                     if(estado.mtime<date){
                         console.log("\nFichero a borrar: "+path+"\\"+file);
                         fs.rename(path+"\\"+file,rutaBasura+"\\"+file,function(err){
-                            
+
                         });
                     }else{
                         console.log("\nFichero que se queda: "+path+"\\"+file);
