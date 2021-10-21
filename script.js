@@ -21,7 +21,11 @@ function iniciarBorrado(path){
                         console.log("\nFichero que se queda: "+path+"\\"+file);
                     }
                 }else{
-                    iniciarBorrado(path+"\\"+file);
+                    if(file!="Policia"){
+                        iniciarBorrado(path+"\\"+file);
+                    }else{
+                        console.log("Estamos en la carpeta Policia y la dejamos sin tocar");
+                    }
                 }
             })
         })
