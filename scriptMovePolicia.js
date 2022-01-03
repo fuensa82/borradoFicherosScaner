@@ -1,9 +1,13 @@
 const fs = require('fs');
-const rutaInicioW = 'F:\\DatosUsuarios\\Escaner';
-//const rutaBasuraW = 'F:\\DatosUsuarios\\BasuraEscaner';
-const rutaInicio1 = 'C:\\PruebasPolicia\\CtraTorrijos';
-const rutaInicio2 = 'C:\\PruebasPolicia\\CtraCamarena';
-//const rutaBasura = 'C:\\PruebasPolicia\\CtraCamarena';
+
+//var rutaAMover = new Array();
+var rutaAMover=['CtraTorrijos',
+                    'CtraCamarena',
+                    'CtraPortillo',
+                    'CtraToledo'];
+
+const rutaServidor = 'F:\\DatosUsuarios\\Escaner\\Policia';
+//const rutaServidor = 'C:\\PruebasPolicia';
 const meses=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
 var date=new Date();
 date.setDate(date.getDate()-10);
@@ -29,14 +33,12 @@ function iniciarBorrado(path){
                         console.log("\nFichero que se queda: "+path+"\\"+file);
                     }
                 }else{
-                    if(file!="Policia"){
-                        iniciarBorrado(path+"\\"+file);
-                    }else{
-                        console.log("Estamos en la carpeta Policia y la dejamos sin tocar");
-                    }
+                     console.log("") ; 
                 }
             })
         })
     });
 }
-iniciarBorrado(rutaInicio1);
+rutaAMover.forEach(ruta=>{
+    iniciarBorrado(rutaServidor+"\\"+ruta);
+});
