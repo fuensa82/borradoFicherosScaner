@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { exit } = require('process');
 
 //var rutaAMover = new Array();
 var rutaAMover=['CtraTorrijos',
@@ -33,7 +34,7 @@ function iniciarBorrado(path){
                         console.log("\nFichero que se queda: "+path+"\\"+file);
                     }
                 }else{
-                     console.log("") ; 
+                     console.log("Se trata de un directorio") ; 
                 }
             })
         })
@@ -42,3 +43,4 @@ function iniciarBorrado(path){
 rutaAMover.forEach(ruta=>{
     iniciarBorrado(rutaServidor+"\\"+ruta);
 });
+process.exit(1);
